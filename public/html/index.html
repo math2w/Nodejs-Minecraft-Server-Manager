@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>Soon to be...</title>
+        <link rel="stylesheet" href="/public/css/main.css">
+    </head>
+
+    <body>
+
+        <center><main>
+            <div style="width: 20%; height: 500px; margin-top: 7.5%;">
+            <p>Minecraft Server Manager</p>
+            <div hidden="true" id="errordiv" style="background-color: darkred; width: 62%; height: 3%; position: absolute; left: 50%; top: 23%; transform: translate(-50%, -50%);">
+                <p id="errormsg" style="font-size: 18px; margin-top: -2%;">error</p>
+            </div>
+            <section style="margin-top: 22%;">
+            <section style="margin-bottom: 5%;">
+
+            <label style="font-size: 18px; margin-right: 55%;" for="username">Username</label><br>  
+            <input class="blurdiv2" id="username" type="text" style="width: 80%; height: 40px; margin-top: 2%; color: white; font-size: 24px;"><br>
+        </section >
+            <section style="margin-bottom: 5%;">
+            <label style="font-size: 18px; margin-right: 55%;" for="password">Password</label><br>  
+            <input class="blurdiv2" id="password" type="text" style="width: 80%; margin-top: 2%; height: 40px; color: white; font-size: 24px;"><br>
+        </section>
+        </section>
+
+        <button id="login" style="height: 20%; margin-top: 7%; background-color: hsla(216, 90%, 54%, 0.8);">Log in</button>
+            </div>
+
+        </main></center>
+        
+    </body>
+</html>
+
+<script type="module">
+    import { savecookie, getCookie } from "/public/usefulFunctions.js";
+
+  const username = getCookie("username");
+  const password = getCookie("password");
+
+  if (username != null && password != null) {
+    window.location.href = "public/html/dashboard.html";
+  }
+
+
+    var iswrong = false; 
+    const usertxt = document.getElementById("username");
+    const passwordtxt = document.getElementById("password");
+    const errormsg = document.getElementById("errormsg");
+    const errordiv = document.getElementById("errordiv");
+        document.getElementById('login').onclick = function() {
+      event.preventDefault();
+      // use fetch to send our url to the server
+      //fetch(`/download?url=${encodeURIComponent(url)}`)
+      fetch(`/login?username=${encodeURIComponent(usertxt.value)}&password=${encodeURIComponent(passwordtxt.value)}`)
+  .then(response => {
+    if (response.ok) {
+      // If the response is okay, return the response text (which should be the session token)
+      return response.text();
+    } else {
+      // If the response is not okay, handle the error
+      errormsg.innerText = "Username or password incorrect";
+      errordiv.hidden = false;
+      console.error(`Error: ${response.status} - ${response.statusText}`);
+      throw new Error('Unauthorized'); // Throw an error to handle it in the catch block
+    }
+  })
+  .then(data => {
+    console.log("we here");
+    if (data) {
+      savecookie("username", data); // Save the session token in a cookie
+      savecookie("password", data); // Save the password in a cookie
+      // Redirect to the dashboard or perform any other action needed upon successful login
+      window.location.href = '/dashboard';
+    }
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
+        
+      // window.location.href = '/download?url=' + encodeURIComponent(videoUrl);
+    }
+</script>
