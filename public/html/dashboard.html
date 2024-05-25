@@ -26,7 +26,6 @@
 
         const username = getCookie("username");
         const password = getCookie("password");
-        alert(`/dashboardlogin?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`);
         fetch(`/dashboardlogin?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`)
        .then(response => {
 
