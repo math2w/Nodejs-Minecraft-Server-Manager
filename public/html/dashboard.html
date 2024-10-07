@@ -1,72 +1,404 @@
 <html>
-    <head>
-        <title>Soon to be...</title>
-        <link rel="stylesheet" href="/public/css/main.css">
-        <link rel="stylesheet" href="/public/css/dashboard.css">
-    </head>
+  <head>
+    <title>Soon to be...</title>
+    <link rel="stylesheet" href="/public/css/main.css" />
+    <link rel="stylesheet" href="/public/css/dashboard.css" />
+  </head>
 
-    <center><main>
-        <div style="width: 75%; height: 85vh; margin-top: 0%; margin-left: 19%; border-top-left-radius: 0px 0px; border-bottom-left-radius: 0px 0px; border-left-color: rgba(0, 0, 0, 0);">
-        <p>Minecraft Server Manager</p>
+  <center>
+    <main>
+      <div
+        style="
+          width: 75%;
+          height: 85vh;
+          margin-top: 0%;
+          margin-left: 19%;
+          border-top-left-radius: 0px 0px;
+          border-bottom-left-radius: 0px 0px;
+          border-left-color: rgba(0, 0, 0, 0);
+        "
+      >
+        <section id="serverspage">
+          <p>Servers</p>
 
-        </div>
+          <main id="servergrid" class="dashboardgrid">
+            <button hidden id="servercopybtn">Serverbtn</button>
+          </main>
+        </section>
 
+        <section id="createserverpage" hidden="true">
+          <p>Create Server</p>
+          <div
+            style="
+              width: 50%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 20px;
+            "
+          >
+            <label for="servername" style="font-size: 20px; margin-right: 74%"
+              >Server Name</label
+            >
+            <input
+              type="text"
+              id="servername"
+              placeholder="Server Name..."
+              class="blurdiv2"
+              style="width: 90%; color: white; height: 5vh"
+            />
 
-        
-        
+            <section
+              style="
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                width: 50%;
+                margin: 0 auto;
+              "
+              id="normalJAR"
+            >
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <label for="server_type" style="font-size: 20px"
+                  >Server Type</label
+                >
+                <select name="Server type" id="server_type" style="width: 60%">
+                  <option>Vanilla</option>
+                  <option>Forge</option>
+                  <option>Fabric</option>
+                  <option>Paper/Bukkit</option>
+                  <option>Purpur/Bukkit</option>
+                  <option>Spigot/Bukkit</option>
+                  <option>Custom</option>
+                </select>
+              </div>
 
-    </main></center>
-    <div style="width: 17%; height: 85vh; margin-top: -89.5vh; margin-left: 1.75%; background-color: rgba(255, 255, 255, 0.5); border-top-right-radius: 0px 0px; border-bottom-right-radius: 0px 0px; border-right-color: rgba(0, 0, 0, 0);">
-            <p style="border: none; border-color: white; border-bottom-style:ridge;">Minecraft Server Manager</p>
-            <ul style="display: inline-grid; padding: 0 5% 0 5%; margin-top: -8%;">
-                <listbtn class="listbutton">Servers</listbtn>
-                <listbtn class="listbutton">Settings</listbtn>
-            </ul>
-   
-        </div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <label for="servername" style="font-size: 20px">Version</label>
+                <select
+                  name="Server Version"
+                  id="server_version"
+                  style="width: 60%"
+                >
+                  <option>1.21</option>
+                  <option>1.20</option>
+                  <option>1.19</option>
+                  <option>1.18</option>
+                  <option>1.17</option>
+                  <option>1.16</option>
+                  <option>1.15</option>
+                  <option>1.14</option>
+                  <option>1.13</option>
+                  <option>1.12</option>
+                  <option>1.11</option>
+                  <option>1.10</option>
+                  <option>1.9</option>
+                  <option>1.8</option>
+                  <option>1.7</option>
+                  <option>1.6</option>
+                  <option>1.5</option>
+                  <option>1.4</option>
+                  <option>1.3</option>
+                  <option>1.2</option>
+                  <option>1.1</option>
+                  <option>1.0</option>
+                </select>
+              </div>
+            </section>
+
+            <section
+              style="
+                display: none;
+                flex-direction: column;
+                gap: 20px;
+                width: 50%;
+                margin: 0 auto;
+              "
+              id="customJAR"
+            >
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <label for="server_type2" style="font-size: 20px"
+                  >Server Type</label
+                >
+                <select name="Server type" id="server_type2" style="width: 60%">
+                  <option>Vanilla</option>
+                  <option>Forge</option>
+                  <option>Fabric</option>
+                  <option>Paper/Bukkit</option>
+                  <option>Purpur/Bukkit</option>
+                  <option>Spigot/Bukkit</option>
+                  <option>Custom</option>
+                </select>
+              </div>
+
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <label for="servername" style="font-size: 20px">Version</label>
+                <input
+                  type="file"
+                  placeholder="Upload .jar file"
+                  id="uploaded_file"
+                />
+              </div>
+            </section>
+            <p style="font-size: 20px">Do you accept EULA?</p>
+            <label style="font-size: 14px">
+              <input type="radio" name="option" value="yes" id="eulayes" /> Yes
+              <input type="radio" name="option" value="no" id="eulano" /> No
+            </label>
+
+            <button id="createbtn">Create!</button>
+          </div>
+        </section>
+
+        <script>
+          // Server Creation Script!!!
+          const servername = document.getElementById("servername");
+          const server_version = document.getElementById("server_version");
+          const eulano = document.getElementById("eulano");
+          const eulayes = document.getElementById("eulayes");
+          const createbtn = document.getElementById("createbtn");
+          const server_type = document.getElementById("server_type");
+          const normalJAR = document.getElementById("normalJAR");
+          const customJAR = document.getElementById("customJAR");
+          const server_type2 = document.getElementById("server_type2");
+          const uploaded_file = document.getElementById("uploaded_file");
+          var isEULAaccpeted = false;
+          var currentversion = "";
+          var currentservertype = "Vanilla";
+
+          server_type.addEventListener("change", function () {
+            currentservertype = server_type.value;
+
+            if (currentservertype == "Custom") {
+              normalJAR.style.display = "none";
+              customJAR.style.display = "flex";
+              server_type.value = "Custom";
+              server_type2.value = "Custom";
+            } else {
+              normalJAR.style.display = "flex";
+              customJAR.style.display = "none";
+            }
+          });
+
+          server_type2.addEventListener("change", function () {
+            currentservertype = server_type2.value;
+
+            if (currentservertype == "Custom") {
+              normalJAR.style.display = "none";
+              customJAR.style.display = "flex";
+            } else if (currentservertype != "Custom") {
+              normalJAR.style.display = "flex";
+              customJAR.style.display = "none";
+              server_type.value = server_type2.value;
+              currentservertype = server_type2.value;
+            }
+          });
+
+          uploaded_file.addEventListener("change", function () {
+            var file = event.target.files[0]; // Get the first file
+            if (file) {
+              var fileType = file.type; // Get the file's MIME type
+              var fileName = file.name; // Get the file's name
+
+              // Check if the file is a JAR
+              if (
+                fileName.endsWith(".jar") ||
+                fileType === "application/java-archive"
+              ) {
+                console.log("This is a JAR file.");
+              } else {
+                console.log("This is not a JAR file.");
+                alert("You must upload a .jar file!");
+              }
+            }
+          });
+
+          createbtn.onclick = function () {
+            currentversion = server_version.value;
+            if (eulayes.checked) {
+              isEULAaccpeted = true;
+              fetch(
+                `/createserver?servername=${encodeURIComponent(
+                  servername.value
+                )}&server_type=${encodeURIComponent(
+                  server_type.value
+                )}&server_version=${encodeURIComponent(server_version.value)}`
+              )
+                .then((response) => {
+                  if (response.ok) {
+                    return response.text();
+                  }
+                })
+                .then((data) => {
+                  if (data) {
+                    window.location.reload();
+                  }
+                })
+                .catch((error) => {
+                  console.error(error);
+                });
+            } else if (eulano.checked) {
+              isEULAaccpeted = false;
+              alert("You must accept Minecraft's EULA to proceed.");
+            }
+          };
+        </script>
+
+        <section id="settingspage" hidden="true"></section>
+      </div>
+    </main>
+  </center>
+  <div
+    style="
+      width: 17%;
+      height: 85vh;
+      margin-top: -89.5vh;
+      margin-left: 1.75%;
+      background-color: rgba(255, 255, 255, 0.5);
+      border-top-right-radius: 0px 0px;
+      border-bottom-right-radius: 0px 0px;
+      border-right-color: rgba(0, 0, 0, 0);
+    "
+  >
+    <p
+      style="
+        border: none;
+        text-align: center;
+        border-color: white;
+        border-bottom-style: ridge;
+      "
+    >
+      Minecraft Server Manager
+    </p>
+    <ul
+      style="
+        display: inline-grid;
+        padding: 0 5% 0 5%;
+        margin-top: -8%;
+        margin-left: 10%;
+      "
+    >
+      <listbtn class="listbutton" id="serversbtn">Servers</listbtn>
+      <listbtn class="listbutton" id="createserverbtn">Create Server</listbtn>
+      <listbtn class="listbutton" id="settingsbtn">Settings</listbtn>
+    </ul>
+  </div>
 </html>
 
-<body>
-    
-</body>
+<body></body>
 
-<script src=
-"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-    </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script type="module">
-    import { getCookie, delete_cookie } from "/public/usefulFunctions.js";
-        $(document).ready(()=>{
-            $.getJSON("https://api.ipify.org?format=json",
-            function (data) {
+  import { getCookie, delete_cookie } from "/public/usefulFunctions.js";
+  $(document).ready(() => {
+    $.getJSON("https://api.ipify.org?format=json", function (data) {
+      // Displayin IP address on screen
+      console.log(data.ip);
+    });
+  });
 
-                // Displayin IP address on screen
-                console.log(data.ip);
-            })
-        });
+  const username = getCookie("username");
+  const password = getCookie("password");
+  const dashboardgrid = document.getElementById("dashboardgrid");
+  const serverspage = document.getElementById("serverspage");
+  const createserverpage = document.getElementById("createserverpage");
+  const settingspage = document.getElementById("settingspage");
+  const serversbtn = document.getElementById("serversbtn");
+  const createserverbtn = document.getElementById("createserverbtn");
+  const settingsbtn = document.getElementById("settingsbtn");
 
-        const username = getCookie("username");
-        const password = getCookie("password");
-        fetch(`/dashboardlogin?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`)
-       .then(response => {
+  serversbtn.onclick = function () {
+    serverspage.hidden = false;
+    createserverpage.hidden = true;
+    settingspage.hidden = true;
+  };
 
+  createserverbtn.onclick = function () {
+    serverspage.hidden = true;
+    createserverpage.hidden = false;
+    settingspage.hidden = true;
+  };
 
-        console.log(response);
-        if (response.ok) {
+  settingsbtn.onclick = function () {
+    serverspage.hidden = true;
+    createserverpage.hidden = true;
+    settingspage.hidden = false;
+  };
+
+  fetch(
+    `/dashboardlogin?username=${encodeURIComponent(
+      username
+    )}&password=${encodeURIComponent(password)}`
+  )
+    .then((response) => {
+      console.log(response);
+      if (response.ok) {
         // recieve respone from server
-        
-        } else if (!response.ok) {
-            delete_cookie("username");
-            delete_cookie("password");
-            window.location.href = "public/html/index.html";
-            return;
-        }
-    }).catch(e => {
-        console.error(e);
+      } else if (!response.ok) {
+        delete_cookie("username");
+        delete_cookie("password");
+        window.location.href = "public/html/index.html";
+        return;
+      }
     })
+    .catch((e) => {
+      console.error(e);
+    });
 
-        
-      // window.location.href = '/download?url=' + encodeURIComponent(videoUrl);
+  // window.location.href = '/download?url=' + encodeURIComponent(videoUrl);
+</script>
 
-        
+<script>
+  const servercopybtn = document.getElementById("servercopybtn");
+  const servergrid = document.getElementById("servergrid");
+
+  fetch("/getservers")
+    .then((response) => {
+      if (response.ok) {
+        return response.text();
+      } else {
+        alert("Error getting servers!" + response.statusText);
+      }
+    })
+    .then((data) => {
+      console.log("getting servers...");
+
+      var newdata = JSON.parse(data);
+
+      console.log(newdata[0].servername);
+
+      console.log(newdata.length);
+
+      for (let i = 0; i < Object.keys(newdata).length; i++) {
+        var clonebtn = servercopybtn.cloneNode(true);
+        clonebtn.hidden = false;
+        clonebtn.textContent = newdata[i].servername;
+        servergrid.appendChild(clonebtn);
+      }
+    });
 </script>

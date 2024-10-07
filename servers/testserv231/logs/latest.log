@@ -1,0 +1,24 @@
+[16:18:30] [Server thread/INFO]: Starting minecraft server version 1.12
+[16:18:30] [Server thread/INFO]: Loading properties
+[16:18:30] [Server thread/INFO]: Default game type: SURVIVAL
+[16:18:30] [Server thread/INFO]: Generating keypair
+[16:18:30] [Server thread/INFO]: Starting Minecraft server on *:25566
+[16:18:30] [Server thread/INFO]: Using epoll channel type
+[16:18:30] [Server thread/INFO]: Preparing level "world"
+[16:18:31] [Server thread/INFO]: Loaded 488 advancements
+[16:18:31] [Server thread/INFO]: Preparing start region for level 0
+[16:18:32] [Server thread/INFO]: Preparing spawn area: 77%
+[16:18:32] [Server thread/INFO]: Done (1.313s)! For help, type "help" or "?"
+[17:46:27] [Server thread/INFO]: --- Showing help page 1 of 10 (/help <page>) ---
+[17:46:27] [Server thread/INFO]: /advancement <grant|revoke|test> <player>
+[17:46:27] [Server thread/INFO]: /ban <name> [reason ...]
+[17:46:27] [Server thread/INFO]: /ban-ip <address|name> [reason ...]
+[17:46:27] [Server thread/INFO]: /banlist [ips|players]
+[17:46:27] [Server thread/INFO]: /blockdata <x> <y> <z> <dataTag>
+[17:46:27] [Server thread/INFO]: /clear [player] [item] [data] [maxCount] [dataTag]
+[17:46:27] [Server thread/INFO]: /clone <x1> <y1> <z1> <x2> <y2> <z2> <x> <y> <z> [maskMode] [cloneMode]
+[17:46:27] [Server thread/INFO]: Tip: Use the <tab> key while typing a command to auto-complete the command or its arguments
+[17:51:03] [Server Shutdown Thread/INFO]: Stopping server
+[17:51:03] [Server Shutdown Thread/INFO]: Saving players
+[17:51:03] [Server Shutdown Thread/INFO]: Saving worlds
+[17:51:03] [Server Shutdown Thread/INFO]: Saving chunks for level 'world'/overworld

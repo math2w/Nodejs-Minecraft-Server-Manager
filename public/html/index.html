@@ -55,7 +55,7 @@
       fetch(`/login?username=${encodeURIComponent(usertxt.value)}&password=${encodeURIComponent(passwordtxt.value)}`)
   .then(response => {
     if (response.ok) {
-      // If the response is okay, return the response text (which should be the session token)
+      // If the response is okay, return the response text
       return response.text();
     } else {
       // If the response is not okay, handle the error
@@ -68,7 +68,7 @@
   .then(data => {
     console.log("we here");
     if (data) {
-      savecookie("username", data); // Save the session token in a cookie
+      savecookie("username", data); // Save the username in a cookie
       savecookie("password", data); // Save the password in a cookie
       // Redirect to the dashboard or perform any other action needed upon successful login
       window.location.href = '/dashboard';
@@ -81,4 +81,6 @@
         
       // window.location.href = '/download?url=' + encodeURIComponent(videoUrl);
     }
+
+    
 </script>

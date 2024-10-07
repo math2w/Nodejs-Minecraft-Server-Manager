@@ -1,0 +1,17 @@
+[
+  {
+    "servername": "sadqadqwr",
+    "server_type": "Paper/Bukkit",
+    "server_version": "1.17"
+  },
+  {
+    "servername": "forgeserver",
+    "server_type": "Forge",
+    "server_version": "1.20"
+  },
+  {
+    "servername": "test2",
+    "server_type": "Vanilla",
+    "server_version": "1.9"
+  }
+]

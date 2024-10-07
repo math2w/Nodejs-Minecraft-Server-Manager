@@ -1,0 +1,135 @@
+<body id="ifn5cj">
+    <section class="gjs-section" id="i41yj">
+      <div class="gjs-container" id="ijsvk">
+        <div id="i1a4d">logs</div>
+        <input type="text" id="it4el"/>
+      </div>
+    </section>
+    
+    <style>
+       * {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+#ifn5cj {
+	margin: 0;
+	padding: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background-image: url(http://math2w.uk.to:1000/currentwebbackground/image.png);
+	background-size: cover;
+	color: white;
+}
+
+.gjs-container {
+	width: 90%;
+	margin: 0 auto;
+	max-width: 1200px;
+}
+
+.gjs-section {
+	display: flex;
+	padding: 50px 0;
+}
+
+#i41yj {
+	padding-top: 50px;
+	width: 90%;
+	height: 80%;
+	min-height: 80%;
+	max-height: 80%;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding-right: 0px;
+	padding-bottom: 59px;
+	padding-left: 0px;
+	position: fixed;
+	top: 10%;
+	right: 5%;
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(8.7px);
+	-webkit-backdrop-filter: blur(8.7px);
+	border: 1px solid rgba(255, 255, 255, 0.34);
+	font-size: 1.5em;
+	font-weight: lighter;
+	undefined: undefined;
+	padding: 20px;
+	color: white;
+	transition: transform 0.2s ease-in-out;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	background-image: linear-gradient(rgba(155, 135, 135, 0.12) 1%, rgba(155, 135, 135, 0.12) 100%);
+	background-position: 0px 0px;
+	background-size: auto auto;
+	background-color: rgba(255, 255, 255, 0.27);
+}
+
+#ijsvk {
+	background-color: rgba(0, 0, 0, 0);
+	display: block;
+	background-clip: border-box;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 0px;
+}
+
+#i1a4d {
+	padding: 10px;
+	position: fixed;
+	top: 5%;
+	right: 0%;
+	text-align: center;
+	text-transform: none;
+	width: 80%;
+	left: 10%;
+	height: 80%;
+}
+
+#it4el {
+	font-size: 1.5em;
+	undefined: undefined;
+	padding: 20px;
+	border: 1px solid rgba(255, 255, 255, 0.34);
+	border-radius: 16px;
+	background: rgba(255, 255, 255, 0.123);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(8.7px);
+	-webkit-backdrop-filter: blur(8.7px);
+	color: white;
+	transition: transform 0.2s ease-in-out;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 85%;
+	height: 10%;
+	position: fixed;
+	top: 87%;
+    left: 6.5%;
+}
+    </style>
+  
+    <script>
+      // Establish an EventSource connection to the server
+      const eventSource = new EventSource("/runserver");
+  
+      // Listen for server-sent events and update the logs
+      eventSource.onmessage = function(event) {
+        const logDiv = document.getElementById("i1a4d");
+        logDiv.textContent += event.data + "\n";  // Append new logs
+        logDiv.scrollTop = logDiv.scrollHeight;   // Auto-scroll to bottom
+      };
+  
+      // Optionally, handle any errors from the SSE connection
+      eventSource.onerror = function(err) {
+        console.error("EventSource failed:", err);
+      };
+    </script>
+  </body>
